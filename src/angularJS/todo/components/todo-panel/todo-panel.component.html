@@ -1,0 +1,8 @@
+<div class="todo-panel">
+  <div class="todo-panel__name">{{ $ctrl.todoCategory.name }}</div>
+  <div class="todo-panel__list">
+    <div ng-repeat="todo in $ctrl.todoCategory.todos | orderBy:'isDone'">
+      <todo-line todo="todo"></todo-line>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
-import * as angular from "angular";
-import { register as registerAngularJS } from "./angularJS/angularjs.module";
+import * as angular from 'angular';
+import { register as registerAngularJS } from './angularJS/angularjs.module';
+import './index.scss';
 
 const angularJSModule = registerAngularJS();
 

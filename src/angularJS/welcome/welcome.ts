@@ -1,8 +1,8 @@
-import template from "./welcome.html";
+import template from './welcome.html';
 
 class WelcomeController {
   showAlert() {
-    alert("hola");
+    alert('hola');
   }
 }
 
