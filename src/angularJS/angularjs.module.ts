@@ -8,6 +8,7 @@ import CompletedTodoDirective from './todo/directives/completed-todo.directive';
 import todoScreenComponent from './todo/screen/todo-screen.component';
 import TodoRepositoryService from './todo/services/todo-repository.service';
 import TodoService from './todo/services/todo.service';
+import { setFocusDirective } from '../core/directives/set-focus.directive';
 import WelcomeComponent from './welcome/welcome';
 
 export const register = () => {
@@ -23,6 +24,7 @@ export const register = () => {
   appModule.service('todoService', TodoService);
   appModule.service('todoRepositoryService', TodoRepositoryService);
   appModule.directive('completedTodo', CompletedTodoDirective);
+  appModule.directive('setFocus', setFocusDirective);
 
   return appModule;
 };

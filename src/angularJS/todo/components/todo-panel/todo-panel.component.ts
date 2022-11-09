@@ -1,3 +1,4 @@
+import { EventConstants } from '../../../../core/constants/events';
 import { TodoCategory } from '../../model/todo-category.model';
 import { Todo } from '../../model/todo.model';
 import TodoService from '../../services/todo.service';
@@ -13,8 +14,8 @@ class TodoPanelController {
   public addButtonState: AddButtonState = AddButtonState.None;
   public editingName = '';
 
-  static $inject = ['todoService'];
-  constructor(private todoService: TodoService) {}
+  static $inject = ['todoService', '$scope'];
+  constructor(private todoService: TodoService, private $scope: ng.IScope) {}
 
   deleteTodo(todo: Todo) {
     const foundIndex = this.todoCategory.todos.findIndex(
@@ -31,13 +32,15 @@ class TodoPanelController {
         break;
       case AddButtonState.Adding:
         this.todoService.addTodoToCategory(this.todoCategory, this.editingName);
-        this.addButtonState = AddButtonState.None;
         this.editingName = '';
+        this.addButtonState = AddButtonState.None;
         break;
       case AddButtonState.AddingEmpty:
         this.addButtonState = AddButtonState.None;
         break;
     }
+
+    this.$scope.$emit(EventConstants.AddButtonChanged, this.addButtonState);
   }
 
   onNameChanged(name: string) {
