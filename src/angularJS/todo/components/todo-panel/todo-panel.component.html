@@ -1,8 +1,30 @@
 <div class="todo-panel">
-  <div class="todo-panel__name">{{ $ctrl.todoCategory.name }}</div>
-  <div class="todo-panel__list">
-    <div ng-repeat="todo in $ctrl.todoCategory.todos | orderBy:'isDone'">
-      <todo-line todo="todo"></todo-line>
+  <div class="todo-panel__header">
+    <div class="todo-panel__name">{{ $ctrl.todoCategory.name }}</div>
+    <div class="todo-panel__actions">
+      <add-todo-button
+        state="$ctrl.addButtonState"
+        on-click="$ctrl.toggleAdd()"
+      ></add-todo-button>
     </div>
+  </div>
+  <div
+    class="todo-panel__editor"
+    ng-if="$ctrl.addButtonState !== $ctrl.addButtonStateEnum.None"
+  >
+    <add-todo
+      name="editingName"
+      on-name-changed="$ctrl.onNameChanged(name)"
+    ></add-todo>
+  </div>
+  <div class="todo-panel__list">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        ng-repeat="todo in $ctrl.todoCategory.todos | orderBy:'isDone'"
+      >
+        <todo-line todo="todo" on-delete="$ctrl.deleteTodo(todo)"></todo-line>
+      </li>
+    </ul>
   </div>
 </div>

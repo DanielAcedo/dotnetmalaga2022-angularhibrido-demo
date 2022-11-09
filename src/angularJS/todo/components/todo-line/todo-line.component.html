@@ -1,8 +1,18 @@
 <div class="todo-line" completed-todo todo="$ctrl.todo">
-  <div>
+  <div class="todo-line__description">
     {{ $ctrl.todo.description }}
   </div>
-  <div>
-    <input type="checkbox" ng-model="$ctrl.todo.isDone" />
+  <div class="todo-line__actions">
+    <checkbox
+      class="todo-line__actions-checkbox"
+      name="todoIsDone"
+      value="$ctrl.todo.isDone"
+    ></checkbox>
+    <button
+      class="btn btn-danger todo-line__actions-delete"
+      ng-click="$ctrl.clickDelete()"
+    >
+      <i class="bi-trash-fill"></i>
+    </button>
   </div>
 </div>

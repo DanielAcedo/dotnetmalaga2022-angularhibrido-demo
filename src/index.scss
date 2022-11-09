@@ -1,11 +1,6 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  // background: #EECDA3;  /* fallback for old browsers */
-  // background: linear-gradient(to right, #EF629F, #EECDA3);
   background: linear-gradient(to right, #36d1dc, #5b86e5);
-  //background-color: #00cec9;
-  
 }

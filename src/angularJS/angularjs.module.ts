@@ -1,4 +1,7 @@
 import * as angular from 'angular';
+import CheckboxComponent from '../core/components/checkbox/checkbox.component';
+import addTodoButtonComponent from './todo/components/add-todo-button/add-todo-button.component';
+import addTodoComponent from './todo/components/add-todo/add-todo.component';
 import todoLineComponent from './todo/components/todo-line/todo-line.component';
 import todoPanelComponent from './todo/components/todo-panel/todo-panel.component';
 import CompletedTodoDirective from './todo/directives/completed-todo.directive';
@@ -14,9 +17,12 @@ export const register = () => {
   appModule.component('todoScreen', todoScreenComponent);
   appModule.component('todoPanel', todoPanelComponent);
   appModule.component('todoLine', todoLineComponent);
+  appModule.component('addTodo', addTodoComponent);
+  appModule.component('addTodoButton', addTodoButtonComponent);
+  appModule.component('checkbox', CheckboxComponent);
   appModule.service('todoService', TodoService);
-  appModule.directive('completedTodo', CompletedTodoDirective);
   appModule.service('todoRepositoryService', TodoRepositoryService);
+  appModule.directive('completedTodo', CompletedTodoDirective);
 
   return appModule;
 };
