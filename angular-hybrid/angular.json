@@ -28,12 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/app-ajs/index.scss",
               "src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/angular/angular.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
