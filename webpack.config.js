@@ -52,8 +52,6 @@ export default {
   plugins: [
     new AngularWebpackPlugin({
       tsConfigPath: './tsconfig.json',
-      entryModule: './src/angular/app/app.module#AppModule',
-      jitMode: false,
       sourceMap: true,
     }),
     new HtmlWebpackPlugin({
