@@ -11,6 +11,8 @@ import TodoService from './todo/services/todo.service';
 import { setFocusDirective } from '../core/directives/set-focus.directive';
 import WelcomeComponent from './welcome/welcome';
 
+import { downgradeComponent } from '@angular/upgrade/static';
+
 export const register = () => {
   const appModule = angular.module('myApp', []);
 

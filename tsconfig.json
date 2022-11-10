@@ -8,7 +8,7 @@
         "moduleResolution": "node",
         "lib": ["es6", "dom"],
         "experimentalDecorators": true,
-        "typeRoots": [ "../node_modules/@types"],
+        "typeRoots": [ "./node_modules/@types"],
     },
     "exclude": ["./**/*.spec.ts"],
     "angularCompilerOptions": {

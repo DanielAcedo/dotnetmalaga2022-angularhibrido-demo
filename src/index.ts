@@ -1,6 +1,6 @@
 import 'bootstrap';
-import '../../angularjs/src/index.scss';
-import * as angular from 'angular';
+import './index.scss';
+
 import { register as registerAngularJS } from './angularJS/angularjs.module';
 
 import 'zone.js';

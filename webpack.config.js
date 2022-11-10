@@ -52,7 +52,7 @@ export default {
   plugins: [
     new AngularWebpackPlugin({
       tsConfigPath: './tsconfig.json',
-      entryModule: './angular/app/app.module#AppModule',
+      entryModule: './src/angular/app/app.module#AppModule',
       jitMode: false,
       sourceMap: true,
     }),
