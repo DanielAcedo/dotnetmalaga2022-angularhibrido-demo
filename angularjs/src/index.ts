@@ -1,8 +1,22 @@
 import 'bootstrap';
-import './index.scss';
+import '../../angularjs/src/index.scss';
 import * as angular from 'angular';
 import { register as registerAngularJS } from './angularJS/angularjs.module';
 
-const angularJSModule = registerAngularJS();
+import 'zone.js';
 
-angular.bootstrap(document.body, [angularJSModule.name], { strictDi: true });
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './angular/app/app.module';
+import { environment } from './angular/environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+registerAngularJS();
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
