@@ -1,11 +1,10 @@
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, resolve } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
 import { AngularWebpackPlugin } from '@ngtools/webpack';
 import linkerPlugin from '@angular/compiler-cli/linker/babel';
 
@@ -47,7 +46,7 @@ export default {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'dist'),
   },
   plugins: [
     new AngularWebpackPlugin({
