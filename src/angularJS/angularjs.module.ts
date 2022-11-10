@@ -11,8 +11,12 @@ import TodoService from './todo/services/todo.service';
 import { setFocusDirective } from '../core/directives/set-focus.directive';
 import WelcomeComponent from './welcome/welcome';
 
-import { downgradeComponent } from '@angular/upgrade/static';
+import {
+  downgradeComponent,
+  downgradeInjectable,
+} from '@angular/upgrade/static';
 import { CheckboxNewComponent } from '../core/components/checkbox-new/checkbox-new.component';
+import { UpgradedTodoRepositoryService } from '../angular/app/todo/services/upgraded-todo-repository/upgraded-todo-repository.service';
 
 export const register = () => {
   const appModule = angular.module('myApp', []);
@@ -29,9 +33,14 @@ export const register = () => {
   appModule.directive('completedTodo', CompletedTodoDirective);
   appModule.directive('setFocus', setFocusDirective);
 
+  // downgraded components and services
   appModule.directive(
     'checkboxNew',
     downgradeComponent({ component: CheckboxNewComponent })
+  );
+  appModule.service(
+    'upgradedTodoRepositoryService',
+    downgradeInjectable(UpgradedTodoRepositoryService)
   );
 
   return appModule;

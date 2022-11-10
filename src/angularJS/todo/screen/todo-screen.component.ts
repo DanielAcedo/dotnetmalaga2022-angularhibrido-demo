@@ -1,14 +1,14 @@
 import * as ng from 'angular';
+import { UpgradedTodoRepositoryService } from '../../../angular/app/todo/services/upgraded-todo-repository/upgraded-todo-repository.service';
 import { TodoCategory } from '../model/todo-category.model';
-import TodoRepositoryService from '../services/todo-repository.service';
 import template from './todo-screen.component.html';
 import './todo-screen.component.scss';
 
 class TodoScreenController implements ng.IComponentController {
   public todoCategories: TodoCategory[];
 
-  static $inject = ['todoRepositoryService'];
-  constructor(private todoRepositoryService: TodoRepositoryService) {}
+  static $inject = ['upgradedTodoRepositoryService'];
+  constructor(private todoRepositoryService: UpgradedTodoRepositoryService) {}
 
   $onInit() {
     this.todoCategories = this.todoRepositoryService.getTodoCategories();
