@@ -1,0 +1,16 @@
+.todo-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    &-delete {
+      padding: 0.5em;
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+    }
+  }
+}

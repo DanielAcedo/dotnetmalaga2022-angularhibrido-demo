@@ -1,0 +1,8 @@
+<button
+  class="btn"
+  ng-class="$ctrl.getButtonClasses()"
+  ng-click="$ctrl.click()"
+  ng-disabled="$ctrl.addButtonState === $ctrl.addButtonStateEnum.Adding"
+>
+  <i ng-class="$ctrl.getIconClasses()"></i>
+</button>
