@@ -12,6 +12,7 @@ import { setFocusDirective } from '../core/directives/set-focus.directive';
 import WelcomeComponent from './welcome/welcome';
 
 import { downgradeComponent } from '@angular/upgrade/static';
+import { CheckboxNewComponent } from '../core/components/checkbox-new/checkbox-new.component';
 
 export const register = () => {
   const appModule = angular.module('myApp', []);
@@ -27,6 +28,11 @@ export const register = () => {
   appModule.service('todoRepositoryService', TodoRepositoryService);
   appModule.directive('completedTodo', CompletedTodoDirective);
   appModule.directive('setFocus', setFocusDirective);
+
+  appModule.directive(
+    'checkboxNew',
+    downgradeComponent({ component: CheckboxNewComponent })
+  );
 
   return appModule;
 };
