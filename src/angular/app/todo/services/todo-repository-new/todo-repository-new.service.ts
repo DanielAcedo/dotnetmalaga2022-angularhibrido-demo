@@ -3,7 +3,7 @@ import { TodoCategory } from '../../../../../angularJS/todo/model/todo-category.
 import TodoService from '../../../../../angularJS/todo/services/todo.service';
 
 @Injectable({ providedIn: 'root' })
-export class UpgradedTodoRepositoryService {
+export class TodoRepositoryNewService {
   private todoCategories: TodoCategory[] = [];
   private init = false;
 

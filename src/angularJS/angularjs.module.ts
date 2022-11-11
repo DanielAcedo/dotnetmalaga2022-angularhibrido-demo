@@ -15,7 +15,8 @@ import {
   downgradeInjectable,
 } from '@angular/upgrade/static';
 import { CheckboxNewComponent } from '../core/components/checkbox-new/checkbox-new.component';
-import { UpgradedTodoRepositoryService } from '../angular/app/todo/services/upgraded-todo-repository/upgraded-todo-repository.service';
+import { TodoRepositoryNewService } from '../angular/app/todo/services/todo-repository-new/todo-repository-new.service';
+import { ShowDoneTodoComponent } from '../angular/app/todo/components/show-done-todo/show-done-todo.component';
 
 export const register = () => {
   const appModule = angular.module('myApp', []);
@@ -36,9 +37,13 @@ export const register = () => {
     'checkboxNew',
     downgradeComponent({ component: CheckboxNewComponent })
   );
+  appModule.directive(
+    'showDoneTodo',
+    downgradeComponent({ component: ShowDoneTodoComponent })
+  );
   appModule.service(
     'upgradedTodoRepositoryService',
-    downgradeInjectable(UpgradedTodoRepositoryService)
+    downgradeInjectable(TodoRepositoryNewService)
   );
 
   return appModule;
