@@ -52,6 +52,7 @@ class TodoPanelController implements ng.IComponentController {
         break;
       case AddButtonState.Adding:
         this.todoService.addTodoToCategory(this.todoCategory, this.editingName);
+        this.filterTodos();
         this.editingName = '';
         this.addButtonState = AddButtonState.None;
         break;
