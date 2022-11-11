@@ -3,6 +3,7 @@
     <checkbox
       [name]="'showDoneTodoCheckbox'"
       [(value)]="showDoneTodo"
+      (valueChange)="changeToggle()"
       [label]="'¿Mostrar to-dos completados?'"
     ></checkbox>
   </div>

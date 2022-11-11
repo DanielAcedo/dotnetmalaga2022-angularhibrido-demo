@@ -7,6 +7,7 @@
       class="todo-line__actions-checkbox"
       [name]="todoIsDone"
       [(value)]="$ctrl.todo.isDone"
+      (value-change)="$ctrl.clickDone()"
     ></checkbox-new>
     <button
       class="btn btn-danger todo-line__actions-delete"

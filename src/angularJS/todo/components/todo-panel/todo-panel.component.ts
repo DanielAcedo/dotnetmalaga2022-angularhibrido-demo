@@ -6,16 +6,34 @@ import { AddButtonState } from '../add-todo-button/add-todo-button.component';
 import template from './todo-panel.component.html';
 import './todo-panel.component.scss';
 
-class TodoPanelController {
+class TodoPanelController implements ng.IComponentController {
   public todoCategory: TodoCategory;
+  public filteredTodos: Todo[] = [];
   public isAdding = false;
 
   public addButtonStateEnum = AddButtonState;
   public addButtonState: AddButtonState = AddButtonState.None;
   public editingName = '';
 
+  private showDoneTodo: boolean = true;
+
   static $inject = ['todoService', '$scope'];
   constructor(private todoService: TodoService, private $scope: ng.IScope) {}
+
+  $onInit(): void {
+    this.filterTodos();
+
+    this.todoService.subscribeToShowDoneTodoValue((showDoneTodo) => {
+      this.showDoneTodo = showDoneTodo;
+      this.filterTodos();
+    });
+  }
+
+  filterTodos() {
+    this.filteredTodos = this.todoCategory.todos.filter(
+      (t) => this.showDoneTodo || !t.isDone
+    );
+  }
 
   deleteTodo(todo: Todo) {
     const foundIndex = this.todoCategory.todos.findIndex(
@@ -23,6 +41,8 @@ class TodoPanelController {
     );
 
     if (foundIndex !== -1) this.todoCategory.todos.splice(foundIndex, 1);
+
+    this.filterTodos();
   }
 
   toggleAdd() {
@@ -41,6 +61,10 @@ class TodoPanelController {
     }
 
     this.$scope.$emit(EventConstants.AddButtonChanged, this.addButtonState);
+  }
+
+  toggleDone(todo: Todo) {
+    this.filterTodos();
   }
 
   onNameChanged(name: string) {

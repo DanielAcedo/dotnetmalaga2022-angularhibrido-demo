@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import TodoService from '../../../../../angularJS/todo/services/todo.service';
 
 @Component({
   selector: 'show-done-todo',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
 export class ShowDoneTodoComponent {
   public showDoneTodo: boolean = true;
 
-  constructor() {}
+  constructor(private todoService: TodoService) {}
+
+  changeToggle() {
+    this.todoService.emitShowDoneTodoValue(this.showDoneTodo);
+  }
 }
