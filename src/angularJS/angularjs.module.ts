@@ -9,7 +9,6 @@ import todoScreenComponent from './todo/screen/todo-screen.component';
 import TodoRepositoryService from './todo/services/todo-repository.service';
 import TodoService from './todo/services/todo.service';
 import { setFocusDirective } from '../core/directives/set-focus.directive';
-import WelcomeComponent from './welcome/welcome';
 
 import {
   downgradeComponent,
@@ -21,7 +20,6 @@ import { UpgradedTodoRepositoryService } from '../angular/app/todo/services/upgr
 export const register = () => {
   const appModule = angular.module('myApp', []);
 
-  appModule.component('welcome', WelcomeComponent);
   appModule.component('todoScreen', todoScreenComponent);
   appModule.component('todoPanel', todoPanelComponent);
   appModule.component('todoLine', todoLineComponent);
