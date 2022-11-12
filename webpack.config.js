@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, resolve } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -38,7 +38,12 @@ export default {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/,
+        exclude: [/node_modules/, resolve(__dirname, 'src/angular/app')],
+      },
+      {
+        test: /\.scss$/,
+        use: ['raw-loader', 'sass-loader'],
+        include: [resolve(__dirname, 'src/angular/app')],
       },
     ],
   },
