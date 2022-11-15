@@ -9,12 +9,18 @@ import todoScreenComponent from './todo/screen/todo-screen.component';
 import TodoRepositoryService from './todo/services/todo-repository.service';
 import TodoService from './todo/services/todo.service';
 import { setFocusDirective } from '../core/directives/set-focus.directive';
-import WelcomeComponent from './welcome/welcome';
+
+import {
+  downgradeComponent,
+  downgradeInjectable,
+} from '@angular/upgrade/static';
+import { CheckboxNewComponent } from '../core/components/checkbox-new/checkbox-new.component';
+import { TodoRepositoryNewService } from '../angular/app/todo/services/todo-repository-new/todo-repository-new.service';
+import { ShowDoneTodoComponent } from '../angular/app/todo/components/show-done-todo/show-done-todo.component';
 
 export const register = () => {
   const appModule = angular.module('myApp', []);
 
-  appModule.component('welcome', WelcomeComponent);
   appModule.component('todoScreen', todoScreenComponent);
   appModule.component('todoPanel', todoPanelComponent);
   appModule.component('todoLine', todoLineComponent);
@@ -25,6 +31,20 @@ export const register = () => {
   appModule.service('todoRepositoryService', TodoRepositoryService);
   appModule.directive('completedTodo', CompletedTodoDirective);
   appModule.directive('setFocus', setFocusDirective);
+
+  // downgraded components and services
+  appModule.directive(
+    'checkboxNew',
+    downgradeComponent({ component: CheckboxNewComponent })
+  );
+  appModule.directive(
+    'showDoneTodo',
+    downgradeComponent({ component: ShowDoneTodoComponent })
+  );
+  appModule.service(
+    'upgradedTodoRepositoryService',
+    downgradeInjectable(TodoRepositoryNewService)
+  );
 
   return appModule;
 };

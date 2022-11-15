@@ -3,10 +3,18 @@
         "outDir": "./dist",
         "noImplicitAny": true,
         "module": "es6",
-        "target": "ES5",
+        "target": "ES6",
         "allowJs": false,
         "moduleResolution": "node",
         "lib": ["es6", "dom"],
-        "typeRoots": [ "../node_modules/@types"],
-    }
+        "experimentalDecorators": true,
+        "typeRoots": [ "./node_modules/@types"],
+    },
+    "exclude": ["./**/*.spec.ts"],
+    "angularCompilerOptions": {
+        "enableI18nLegacyMessageIdFormat": false,
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true
+    },
 }

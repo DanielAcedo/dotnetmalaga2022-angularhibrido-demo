@@ -1,9 +1,11 @@
+import { Subject } from 'rxjs';
 import { max } from '../../../core/helpers/iterable-helper';
 import { TodoCategory } from '../model/todo-category.model';
 import { Todo } from '../model/todo.model';
 
 export default class TodoService {
   private idCounter: number = 1;
+  private showDoneTodoSubject: Subject<boolean> = new Subject();
 
   public addTodoToCategory(
     todoCategory: TodoCategory,
@@ -20,5 +22,13 @@ export default class TodoService {
     todoCategory.todos.push(todo);
 
     return todo;
+  }
+
+  public subscribeToShowDoneTodoValue(callback: (value: boolean) => void) {
+    this.showDoneTodoSubject.subscribe(callback);
+  }
+
+  public emitShowDoneTodoValue(value: boolean) {
+    this.showDoneTodoSubject.next(value);
   }
 }

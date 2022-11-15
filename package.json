@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch"
@@ -11,12 +12,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@ngtools/webpack": "^14.2.9",
     "@types/angular": "^1.5.11",
+    "@types/jest": "^29.2.2",
     "angular": "^1.5.11",
+    "babel-loader": "^9.1.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "raw-loader": "^4.0.2",
     "sass": "^1.56.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
@@ -26,7 +31,19 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "@angular/animations": "^14.2.0",
+    "@angular/common": "^14.2.0",
+    "@angular/compiler": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/forms": "^14.2.0",
+    "@angular/platform-browser": "^14.2.0",
+    "@angular/platform-browser-dynamic": "^14.2.0",
+    "@angular/router": "^14.2.0",
+    "@angular/upgrade": "^14.2.10",
     "bootstrap": "^5.2.2",
-    "bootstrap-icons": "^1.9.1"
+    "bootstrap-icons": "^1.9.1",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
   }
 }

@@ -5,9 +5,14 @@ import './todo-line.component.scss';
 class TodoLineController {
   public todo: Todo;
   public onDelete: (payload: { todo: Todo }) => void;
+  public onTodoDone: (payload: { todo: Todo }) => void;
 
   clickDelete() {
     this.onDelete?.({ todo: this.todo });
+  }
+
+  clickDone() {
+    this.onTodoDone?.({ todo: this.todo });
   }
 }
 
@@ -16,7 +21,8 @@ const todoLineComponent: ng.IComponentOptions = {
   controller: TodoLineController,
   bindings: {
     todo: '<',
-    onDelete: '&',
+    onDelete: '&?',
+    onTodoDone: '&?',
   },
 };
 export default todoLineComponent;

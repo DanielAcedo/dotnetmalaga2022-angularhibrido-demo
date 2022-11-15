@@ -1,0 +1,12 @@
+<div class="form-check">
+  <input
+    class="form-check-input"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChanged($event)"
+    type="checkbox"
+    id="{{ name }}"
+  />
+  <label *ngIf="label" class="form-check-label" for="{{ name }}">
+    {{ label }}
+  </label>
+</div>
